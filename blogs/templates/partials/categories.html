@@ -1,0 +1,10 @@
+<div class="list-group">
+  {% for category in categories %}
+    <a class="list-group-item list-group-item-action {%if category.slug == selected_category %}active {%endif%} " href="{% url 'blogs_by_category' category.slug %}">
+      {{ category.categories|title }}
+    </a>
+  {% empty %}
+    <!-- Veritabanında veri yoksa görünecek mesaj -->
+    <p class="p-2 text-muted">Kategori bulunamadı.</p>
+  {% endfor %}
+</div>

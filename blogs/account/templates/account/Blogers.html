@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Yazarlarımız (Yöneticiler)</h2>
+    <div class="row">
+        {% for blogger in Blogers %}
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            {{ blogger.get_full_name|default:blogger.username }}
+                        </h5>
+                        <p class="card-text text-muted">@{{ blogger.username }}</p>
+                        <p class="card-text">E-posta: {{ blogger.email }}</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>Henüz listelenecek bir yönetici yazar bulunmuyor.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

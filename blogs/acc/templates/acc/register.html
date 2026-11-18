@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'acc/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+
+<div class="container mt-3">
+    
+    <h1>Register</h1>
+    <hr>
+    <form action="" method="post">
+    <div class="mb-4">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" name="username" placeholder="Enter your username">
+    </div>
+<div class="mb-4">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="Enter your password">
+    <div class="mb-4">
+    <div class="mb-4"></div> 
+    
+</div>
+<div class="mb-3" ></div>
+
+<input type="submit" value="Register" class="btn btn-primary">
+
+    </div>
+    </form>
+
+    </form>
+
+
+
+</div>
+
+{% endblock %}
+{% block js_files %}
+    <script src="{% static 'acc/js/base.js' %}"></script>
+{% endblock js_files %}

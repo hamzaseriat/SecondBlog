@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Blog Kartı -->
+            <div class="card shadow-sm border-0 rounded-3 overflow-hidden">
+                <!-- Blog Görseli -->
+                {% if blog.image %}
+                   <img src="{{ blog.image.url }}" class="img-fluid " style="max-width:60% height: auto;" alt="{{ blog.title }}">
+                {% else %}
+                    <img src="{% static 'blog.image' %}" class="card-img-top" alt="Blog Görseli" style="max-width:60% height:auto;"; object-fit: cover;>
+                {% endif %}
+
+                <div class="card-body p-4 p-md-5">
+                    <!-- Blog Başlığı -->
+                    <h1 class="card-title fw-bold text-dark mb-3">{{ blog.title }}</h1>
+
+                    <!-- Tarih / Yazar Bilgisi -->
+                    <div class="text-muted small mb-4 pb-3 border-bottom d-flex align-items-center gap-3">
+                        {% if blog.created_at %}
+                            <span><i class="bi bi-calendar3 me-1"></i>{{ blog.created_at|date:"d F Y" }}</span>
+                        {% endif %}
+                        {% if blog.author %}
+                            <span><i class="bi bi-person me-1"></i>{{ blog.author.username }}</span>
+                        {% endif %}
+                    </div>
+
+                    <!-- Blog İçeriği -->
+                    <div class="card-text text-secondary lh-lg fs-5">
+                        {{ blog.description|safe|linebreaks }}
+                    </div>
+
+                    <!-- Geri Dön Butonu -->
+                    <div class="mt-5 pt-3 border-top">
+                        <a href="{% url 'blogs' %}" class="btn btn-outline-primary rounded-pill px-4">
+                            &larr; Tüm Bloglara Dön
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js_files %}
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+{% endblock js_files %}

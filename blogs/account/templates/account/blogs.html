@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content%}
+<div class="container mt-4">
+  <div class="row">
+    
+    <!-- Sol Taraf: Kategoriler (3 Sütun) -->
+    <div class="col-3">
+      {% include 'partials/categories.html' %}
+    </div>
+
+    <!-- Sağ Taraf: Blog Listesi (9 Sütun) -->
+    <div class="col-9">
+      <h1>{{ selected_category}}</h1>
+      <hr>
+
+      
+        {% for blog in blogs %}
+          {% include 'partials/_blogs.html' %}
+        {% endfor %}
+      
+      
+     
+    </div>
+
+  </div>
+</div>
+ {% endblock %}
