@@ -3,17 +3,42 @@
 
 {% block css_files %}
     <link rel="stylesheet" href="{% static 'account/static/css/style.css' %}">
+    
 {% endblock %}
 
 {% block content %}
 <div class="container">
-    <div class="header-image-container">
-        <img src="{% static 'img/myself.jpg' %}" alt="Vision" class="header-image">
-    </div>
-    <div class="vision-text">
-        <h1>Our Vision</h1>
-        <p>Our vision is to create a world where technology empowers individuals and communities to achieve their full potential. We strive to innovate and provide solutions that enhance the quality of life, foster creativity, and promote sustainable development.</p>
-        <p>We envision a future where access to information and technology is universal, enabling people from all walks of life to connect, learn, and grow. Our commitment is to drive positive change through responsible innovation, collaboration, and a dedication to excellence.</p>
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="vision-card">
+                <!-- Üst Görsel Alanı -->
+                <div class="header-image-container">
+                    <img src="{% static 'img/myself.jpg' %}" alt="Our Vision" class="header-image">
+                </div>
+
+                <!-- Resim ile Metni Ayıran Çizgi -->
+                <div class="image-text-divider"></div>
+
+                <!-- Metin Alanı -->
+                <div class="vision-content">
+                    <h1 class="vision-title">Our Vision</h1>
+                    <div class="title-underline"></div>
+
+                    <p class="vision-lead">
+                        At My Blog, we are committed to fostering a community of passionate bloggers and readers. Our vision is to provide a platform where individuals can share their thoughts, ideas, and experiences with the world, while also discovering diverse perspectives from others.
+                    </p>
+
+                    <hr class="my-4 text-muted opacity-25">
+
+                    <p class="vision-paragraph">
+                        Our vision is to create a world where technology empowers individuals and communities to achieve their full potential. We strive to innovate and provide solutions that enhance the quality of life, foster creativity, and promote sustainable development.
+                    </p>
+                    <p class="vision-paragraph mb-0">
+                        We envision a future where access to information and technology is universal, enabling people from all walks of life to connect, learn, and grow. Our commitment is to drive positive change through responsible innovation, collaboration, and a dedication to excellence.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock content %}

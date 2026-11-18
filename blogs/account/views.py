@@ -22,7 +22,7 @@ def vision(request):
     return render(request, 'account/vision.html')
 
 def Blogers(request):
-    admins = User.objects.filter(is_admin=True, is_staff=True).annotate(blog_count=Count('blogs'))
+    admins = User.objects.filter(blogs__isnull=False).distinct()
     return render(request, 'account/Blogers.html', {'Blogers': admins})
 
 def blog_details(request, slug):
