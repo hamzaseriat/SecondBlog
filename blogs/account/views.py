@@ -1,10 +1,13 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from django.db.models import Count
 from django.contrib.auth.models import User
 from account.models import Blogs,Category
 
 def index(request):
+    if not request.user.is_authenticated:
+        redirect("login")
+        
     context = {
         "blogs": Blogs.objects.all(),
     }
@@ -35,11 +38,12 @@ def blogs_by_category(request, slug):
     category = get_object_or_404(Category, slug=slug)
     
     context = {
-        # Doğrudan Blog modeli üzerinden kategoriye göre filtreleme yapıyoruz:
+        
         "blogs": Blogs.objects.filter(category=category, is_active=True),
         "categories": Category.objects.all(),
         "selected_category": slug,
     }
+    
     return render(request, 'account/blogs.html', context)
 
     

@@ -11,12 +11,13 @@
 
 <div class="container mt-3">
     <div class="row">
-        <div class="col-3">
-            {% include 'partials/categories.html' %}
-        </div>
+        
         <div class="col-9">
             <h1>Anasayfa</h1>
             <hr>
+            <p3> Aşağıda sayfamızın çok okunan popüler blogları yer almaktadır.</p3>
+            <hr>
+    
         {%for blog in blogs %}
          {% if blog.is_home and blog.is_active %}
            {% include 'partials/_blogs.html' %}

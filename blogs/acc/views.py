@@ -4,6 +4,8 @@ from django.contrib.auth import authenticate, get_user_model, login, logout
 from django.contrib.auth.models import User
 
 def login_request(request):
+    if request.user.is_authenticated:
+        redirect("home")
     if request.method == "POST":
         username = request.POST["username"]
         password = request.POST["password"]
@@ -22,6 +24,8 @@ def login_request(request):
     
 
 def register_request(request):
+    if request.user.is_authenticated:
+        redirect("home")
     if request.method == "POST":
         username = request.POST.get("username")
         password = request.POST.get("password")
